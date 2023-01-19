@@ -1,2 +1,3 @@
 export {OnboardScreen} from './OnboardScreen/OnboardScreen';
-export {HomeScreen} from './HomeScreen/HomeScreen';
+export {MakeAppointmentScreen} from './MakeAppointmentScreen/MakeAppointmentScreen';
+export {StaffScreen} from './StaffScreen/StaffScreen';

@@ -4,3 +4,4 @@ export {HeroImage} from './HeroImage/HeroImage';
 export {DateInput} from './DateInput/DateInput';
 export {TInput} from './TextInputs/TInput/TInput';
 export {IconTInput} from './TextInputs/IconTInput/IconTInput';
+export {TimeIconFill} from './Icons/TimeIcon/TimeIcon';

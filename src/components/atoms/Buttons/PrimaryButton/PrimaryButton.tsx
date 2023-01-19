@@ -7,12 +7,16 @@ const PrimaryButton = ({
   onPress,
   width,
   height,
+  loading,
+  disabled,
 }: IButton): JSX.Element => (
   <Button
     mode="contained"
     onPress={onPress}
     labelStyle={{fontWeight: 'bold', fontSize: 18}}
     uppercase={true}
+    loading={loading}
+    disabled={disabled}
     style={{width: width, height: height}}>
     {text}
   </Button>

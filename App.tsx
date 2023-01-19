@@ -2,16 +2,19 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {StackNavigation} from './src/navigation/StackNavigation/StackNavigation';
-import {OnboardView} from './src/components/organisms/OnboardView/OnboardView';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import {Provider} from 'react-redux';
+import {store} from './src/app/store';
+import {Provider as PaperProvider} from 'react-native-paper';
+
 function App(): JSX.Element {
   return (
-    <NavigationContainer>
-      <StackNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <PaperProvider>
+        <NavigationContainer>
+          <StackNavigation />
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }
 
