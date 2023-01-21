@@ -8,10 +8,9 @@
       "molecules": ["./src/components/molecules"],
       "organisms": ["./src/components/organisms"],
       "shared": ["./src/shared"]
-      // "@templates": ["./src/Components/Templates/index"],
-      // "@screens": ["./src/Components/Screens/index"],
-      // "@navigators": ["./src/Navigators/index"]
-      // "@styles/*": ["./src/styles/*"]
-    }
-  }
+    },
+    "types": ["jest"],
+    "typeRoots": ["./src/types"]
+  },
+  "include": ["tests/**/*"]
 }

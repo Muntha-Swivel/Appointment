@@ -1,5 +1,9 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    ['@babel/preset-env', {targets: {node: 'current'}}],
+    '@babel/preset-typescript',
+  ],
   plugins: [
     //if you already have other plugin just paste this lines below
     [
@@ -16,6 +20,21 @@ module.exports = {
           // '@navigators': './src/Navigators/index',
           // '@hooks': './src/hooks/index',
         },
+      },
+    ],
+    [
+      'module:react-native-dotenv',
+      {
+        envName: 'APP_ENV',
+        moduleName: '@env',
+        path: '.env',
+        blocklist: null,
+        allowlist: null,
+        blacklist: null, // DEPRECATED
+        whitelist: null, // DEPRECATED
+        safe: false,
+        allowUndefined: true,
+        verbose: false,
       },
     ],
   ],

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import {BASE_URL} from '@env';
 
 const axiosClient = axios.create({
-  baseURL: 'http://localhost:8080/api/appointment',
+  baseURL: BASE_URL,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
