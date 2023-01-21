@@ -7,6 +7,9 @@ const getAllAppointmentService = () => {
 const addAppointmentService = (appointement: IAppointment) => {
   return axiosClient.post('/addAppointment', JSON.stringify(appointement));
 };
+const confirmAppointmentService = (appointment: IAppointment) => {
+  return axiosClient.post('confirmAppointment', JSON.stringify(appointment));
+};
 // const getEmployeeByIdService = (id?: string) => {
 //   return axiosClient.get(`/getEmployee/${id}`);
 // };
@@ -20,4 +23,8 @@ const addAppointmentService = (appointement: IAppointment) => {
 //   return axiosClient.get(`/removeEmployee/${id}`);
 // };
 
-export {getAllAppointmentService, addAppointmentService};
+export {
+  getAllAppointmentService,
+  addAppointmentService,
+  confirmAppointmentService,
+};

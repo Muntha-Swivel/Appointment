@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   mainView: {
     backgroundColor: 'white',
     borderRadius: 20,
-    height: DEVICE_HEIGHT / 4,
+    height: DEVICE_HEIGHT / 3,
     width: DEVICE_WIDTH - 20,
     shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
@@ -35,14 +35,23 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 4,
     borderRadius: 20,
-    padding: 10,
+    padding: 20,
+    gap: 10,
     justifyContent: 'center',
   },
-  profileDetailsView: {
+  patientInfoView: {
+    justifyContent: 'center',
+    gap: 5,
+  },
+  patientInfo: {
+    flexDirection: 'row',
+    alignContent: 'space-around',
+    justifyContent: 'space-between',
+  },
+  actionButtonsView: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20,
+    justifyContent: 'space-around',
   },
 });
 

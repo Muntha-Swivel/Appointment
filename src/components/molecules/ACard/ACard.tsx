@@ -1,16 +1,24 @@
-import * as React from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import {styles} from './ACard.style';
 import {useTheme} from 'react-native-paper';
 import {Text} from 'react-native-paper';
 import {TimeIconFill} from 'atoms';
-import {Avatar} from 'react-native-paper';
 import {PrimaryButton, SecondaryButton} from 'atoms';
 import {IACard} from './ACard.interface';
 
-//const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-const name = 'Munthasir';
-const ACard = ({name, date, time, accept, decline}: IACard): JSX.Element => {
+const ACard = ({
+  name,
+  email,
+  mobile,
+  date,
+  time,
+  accept,
+  decline,
+  duration,
+  acceptButtonDisabled,
+  acceptButtonText,
+}: IACard): JSX.Element => {
   const theme = useTheme();
   return (
     <View style={styles.mainView}>
@@ -27,19 +35,38 @@ const ACard = ({name, date, time, accept, decline}: IACard): JSX.Element => {
         </View>
       </View>
       <View style={styles.bodyView}>
-        <View style={styles.profileDetailsView}>
-          <Text variant="bodyLarge" style={{fontWeight: 'bold'}}>
-            Name:
-          </Text>
-          <Text variant="bodyLarge">{name}</Text>
+        <View style={styles.patientInfoView}>
+          <View style={styles.patientInfo}>
+            <Text variant="bodyMedium" style={{fontWeight: 'bold'}}>
+              Name:
+            </Text>
+            <Text variant="bodyMedium">{name}</Text>
+          </View>
+          <View style={styles.patientInfo}>
+            <Text variant="bodyMedium" style={{fontWeight: 'bold'}}>
+              Mobile:
+            </Text>
+            <Text variant="bodyMedium">{mobile}</Text>
+          </View>
+          <View style={styles.patientInfo}>
+            <Text variant="bodyMedium" style={{fontWeight: 'bold'}}>
+              Email:
+            </Text>
+            <Text variant="bodyMedium">{email}</Text>
+          </View>
+          <View style={styles.patientInfo}>
+            <Text variant="bodyMedium" style={{fontWeight: 'bold'}}>
+              Duration:
+            </Text>
+            <Text variant="bodyMedium">{duration}</Text>
+          </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-          }}>
-          <PrimaryButton text="Accept" onPress={accept} />
+        <View style={styles.actionButtonsView}>
+          <PrimaryButton
+            text={acceptButtonText}
+            onPress={accept}
+            disabled={acceptButtonDisabled}
+          />
           <SecondaryButton text="Decline" onPress={decline} />
         </View>
       </View>

@@ -3,6 +3,7 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {
   addAppointmentService,
   getAllAppointmentService,
+  confirmAppointmentService,
 } from '../../api/services/appointment';
 import {IAppointment} from 'shared';
 
@@ -29,6 +30,7 @@ const appointementSlice = createSlice({
       state.loading = false;
       state.networkError = true;
     });
+    //Add Appointment
     builder.addCase(addAppointment.pending, state => {
       state.loading = true;
       state.networkError = false;
@@ -42,14 +44,22 @@ const appointementSlice = createSlice({
       state.loading = false;
       state.networkError = true;
     });
+    //confrim Appointment
+    builder.addCase(confirmAppointment.pending, state => {
+      state.loading = true;
+      state.networkError = false;
+    });
+    builder.addCase(confirmAppointment.fulfilled, (state, action) => {
+      //state.appointment = action.payload;
+      state.loading = false;
+      state.networkError = false;
+    });
+    builder.addCase(confirmAppointment.rejected, state => {
+      state.loading = false;
+      state.networkError = true;
+    });
   },
 });
-
-// export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-//   const response = await getUsersService();
-//   console.log(response.data.data);
-//   return response.data.data;
-// });
 
 export const getAllAppointments = createAsyncThunk(
   'appointment/getAllAppointment',
@@ -77,4 +87,22 @@ export const addAppointment = createAsyncThunk(
   },
 );
 
+export const confirmAppointment = createAsyncThunk(
+  'appointment/confirmAppointment',
+  async (appointement: IAppointment) => {
+    try {
+      const response = await confirmAppointmentService(appointement);
+      console.log(response.data);
+      return response.data;
+    } catch (err) {
+      throw err;
+    }
+  },
+);
 export default appointementSlice.reducer;
+
+// const updatedAppointments = state.appointments.map(item =>
+//   item._id === action.payload._id ? action.payload : item,
+// );
+
+// state.appointments = updatedAppointments;

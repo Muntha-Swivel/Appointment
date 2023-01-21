@@ -5,4 +5,5 @@ export interface IDateInput {
   onCancel: () => void;
   style?: ViewStyle;
   date: Date;
+  mode: 'date' | 'time' | 'datetime';
 }

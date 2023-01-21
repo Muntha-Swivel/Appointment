@@ -54,6 +54,7 @@ const Form = () => {
           date={datePickerDate}
           onConfirm={val => setDatePickerDate(val)}
           onCancel={() => setOpen(!open)}
+          mode="date"
         />
       </View>
 

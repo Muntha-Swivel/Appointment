@@ -4,6 +4,8 @@ export interface IAppointment {
   date: string;
   email: string;
   mobile: string;
-  time?: string;
+  startTime?: string;
+  endTime?: string;
+  duration?: string;
   confirmed: boolean;
 }

@@ -5,9 +5,11 @@ import {commonScreenStyle} from '../screen.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {getAllAppointments} from '../../features/appointment/appointmentSlice';
 import {ACard} from 'molecules';
+import {ActivityIndicator, useTheme} from 'react-native-paper';
 
 const StaffScreen = () => {
   const dispatch: any = useDispatch();
+  const theme = useTheme();
   const {appointments, loading, error} = useSelector(
     state => state.appointment,
   );
@@ -26,7 +28,7 @@ const StaffScreen = () => {
     return (
       <View style={commonScreenStyle.container}>
         {loading ? (
-          <Text>loading</Text>
+          <ActivityIndicator animating={true} color={theme.colors.primary} />
         ) : (
           <StaffView appointments={appointments} />
         )}
